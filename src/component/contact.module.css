@@ -1,0 +1,25 @@
+.contact{
+    right: 5%;
+    top: 5%;
+    z-index: 200;
+    position: absolute;
+    border-radius: 5px;
+    border:1px solid white;
+    background-color: rgba(0,0,0,0.3);
+}
+.contact img{
+    width: 40px;
+    padding: 1rem;
+    cursor: pointer;
+}
+@media screen and (max-width: 950px){
+    .contact img{
+        width: 30px;
+    }
+}
+@media screen and (max-width: 600px){
+    .contact img{
+        width: 30px;
+        padding: 0.7rem;
+    }
+}

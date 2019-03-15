@@ -1,0 +1,130 @@
+.videoTag{
+    position: fixed;
+    
+  width: auto;
+  height: auto;
+  min-width: 100%; 
+  min-height: 100%;
+}
+.backgrond_photo{
+    display: none;
+}
+.title h1{
+    color:white;
+    position: absolute;
+    top:25%;
+    margin-bottom: 1rem;
+    font-family: Bookman;
+    font-size: 6rem;
+}
+
+.title button{
+    background-color: rgba(0,0,0,0.2);
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 5rem;
+    font-family: Bookman;
+    color:white;
+    position: relative;
+    top:40%;
+}
+.title button:hover{
+    color: gold;
+    
+}
+.title{
+    z-index: 100;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-animation: title 4s linear; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: title 4s; /* Firefox < 16 */
+        -ms-animation: title 4s; /* Internet Explorer */
+         -o-animation: title 4s; /* Opera < 12.1 */
+            animation: title 4s linear;
+}
+
+
+
+@keyframes title {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes title {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes title {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes title {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes title {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@media screen and (max-width: 950px){
+    .videoTag{
+        display: none;
+    }
+    .backgrond_photo{
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+         }
+         
+         .back{
+             position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            background-color: rgba(0,0,0,0.5);
+         }
+    .backgrond_photo img{
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .title h1{
+        font-size: 4rem;
+    }
+    .title button{
+        font-size: 3rem;
+    };
+}
+@media screen and (max-width: 600px){
+    .title h1{
+        font-size: 3rem;
+    }
+    .title button{
+        font-size: 2rem;
+    }
+   
+}
+
