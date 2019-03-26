@@ -12,30 +12,125 @@
     
 }
 .items{
-    height: 90%;
+    height: 85%;
     width: auto;
     padding: 10px;
     background-color: white;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prev{
+    display: flex;
+    position: absolute;
+    left:0;
+    
+}
+.next{
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+.prev button{
+    background-color:transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.5;
+    -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.next button{
+    background-color:transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0.5;
+    -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ .next  button:hover{
+    opacity: 1;
+}
+.prev button:hover{
+    opacity: 1;
+}
+.prev  button img{
+    width: 100px;
+    height: 100px;
+}
+.next button img{
+    width: 100px;
+    height: 100px;
 }
 .close{
     font-size: 2rem;
     color:red;
     position: absolute;
-    left: 95%;
+    right: 5%;
     top:5%;
+    cursor: pointer;
+}
+.number_photo{
+    font-size: 1rem;
+    color:white;
+    position: absolute;
+    text-align: center;
+    top:2%;
     cursor: pointer;
 }
 .items img{
     height: 100%;
     width: auto;
 }
-@media screen and (max-width: 950px){
-   .items{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   }
+@media screen and (max-width: 1070px){
+    .close{
+        bottom: 0;
+        top:unset;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    
+    .prev ,.next button img{
+       opacity: 0;
+    }
+    .prev {
+        height: 80%;
+        left: 0;
+        width: 50%;
+    }
+    .prev button{
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .next {
+        height: 80%;
+        right: 0;
+        width: 50%;
+    }
+    .next button{
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
     .items img {
         padding: 10px;
         width: auto;

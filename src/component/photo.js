@@ -12,7 +12,9 @@ export default class Photo extends React.Component{
   handleImageLoaded() {
     this.setState({ imageStatus: null });
   }
-
+  handleImageErrored() {
+    this.setState({ imageStatus: "failed to load" });
+  }
   
     render(){
         const {id,img}=this.props.photo;
@@ -23,7 +25,7 @@ export default class Photo extends React.Component{
        {value=>(
          
           <div className={s.gallery}>
-          <img src={img} onLoad={this.handleImageLoaded.bind(this)}
+          <img src={img} onLoad={this.handleImageLoaded.bind(this)}  onError={this.handleImageErrored.bind(this)}
            className={s.photo}  onClick={()=>{value.openModal(id)}} />
            {this.state.imageStatus}
           </div>

@@ -15,43 +15,67 @@ firebase.initializeApp(config);
 const storage = firebase.storage();
 var gallery = firebase.database().ref("photos");
 export {storage,gallery, firebase as default}
-const Photo_details = {
-    id: '',
-    img: "",
-  };
+
   const PhotoContext=React.createContext();
 
 class PhotoProvider extends React.Component{
     state={
         photos:[],
         admin_open:false,
-        photo_details:Photo_details,
         modalOpen:false,
-        modalPhoto:Photo_details,
+        modalPhoto:'',
+        number:''
     }
 
    
-   componentWillMount(){
-       const item = this.state.photos;
+    componentDidMount(){
+       const item = [...this.state.photos];
        gallery.on('child_added', snap => {
            item.push({
                id:snap.key,
                img:snap.val().img,
+               
            })
+      
            this.setState({
                photos: item
            })
+          
+           
        })
    }
    
    getItem=(id)=>{
         const photo=this.state.photos.find(item=>item.id===id);
         return photo;
+
+    }
+
+    nextItem=(id)=>{
+        const getIndex = this.state.photos.findIndex(item=>item.id===id);
+        const nextIndex = getIndex+1;    
+        const item = 0;
+        const next = this.state.photos[item+nextIndex].id;
+        const photo=this.getItem(next);
+        this.setState(()=>{
+            return {modalPhoto:photo,number:nextIndex}})  
+        
+    }
+    prevItem=(id)=>{
+        const getIndex = this.state.photos.findIndex(item=>item.id===id);
+        const prevIndex = getIndex-1;
+        const item = 0;
+        const prev = this.state.photos[item+prevIndex].id;
+        const photo=this.getItem(prev);
+        this.setState(()=>{
+            return {modalPhoto:photo,number:prevIndex}})  
+        
     }
     openModal=(id)=>{
+        const getIndex = this.state.photos.findIndex(item=>item.id===id);
         const photo=this.getItem(id);
         this.setState(()=>{
-            return {modalPhoto:photo,modalOpen:true}})  
+            return {modalPhoto:photo,modalOpen:true,number:getIndex}})  
         }
         closeModal=()=>{
             this.setState(()=>{
@@ -64,6 +88,8 @@ class PhotoProvider extends React.Component{
                 ...this.state,
                 openModal:this.openModal,
                  closeModal:this.closeModal,
+                 nextItem:this.nextItem,
+                 prevItem:this.prevItem
                 }}>
             {this.props.children}
             </PhotoContext.Provider>
